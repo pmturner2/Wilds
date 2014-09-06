@@ -1,0 +1,229 @@
+fileFormatVersion: 2
+guid: abbefa1f3a7783041a3b3347af218532
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: polySurface2
+    100004: polySurface3
+    100006: BodyMesh
+    100008: FaceMesh
+    100010: jnt_L_Elbow
+    100012: jnt_L_Foot
+    100014: jnt_L_Hand
+    100016: jnt_L_Hip
+    100018: jnt_L_Shoulder
+    100020: jnt_L_Shoulder2
+    100022: jnt_R_elbow
+    100024: jnt_R_Foot
+    100026: jnt_R_Hand
+    100028: jnt_R_hip
+    100030: jnt_R_Shoulder
+    100032: jnt_R_Shoulder2
+    100034: jnt_root
+    100036: jt_spine
+    400000: //RootNode
+    400002: polySurface2
+    400004: polySurface3
+    400006: BodyMesh
+    400008: FaceMesh
+    400010: jnt_L_Elbow
+    400012: jnt_L_Foot
+    400014: jnt_L_Hand
+    400016: jnt_L_Hip
+    400018: jnt_L_Shoulder
+    400020: jnt_L_Shoulder2
+    400022: jnt_R_elbow
+    400024: jnt_R_Foot
+    400026: jnt_R_Hand
+    400028: jnt_R_hip
+    400030: jnt_R_Shoulder
+    400032: jnt_R_Shoulder2
+    400034: jnt_root
+    400036: jt_spine
+    2300000: polySurface2
+    2300002: polySurface3
+    3300000: polySurface2
+    3300002: polySurface3
+    4300000: polySurface2
+    4300002: polySurface3
+    4300004: BodyMesh
+    4300006: FaceMesh
+    7400000: Idle
+    7400002: Walk
+    9500000: //RootNode
+    13700000: BodyMesh
+    13700002: FaceMesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 3
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BodyMesh
+        weight: 1
+      - path: BodyMesh/FaceMesh
+        weight: 1
+      - path: jnt_root
+        weight: 1
+      - path: jnt_root/jnt_L_Hip
+        weight: 1
+      - path: jnt_root/jnt_L_Hip/jnt_L_Foot
+        weight: 1
+      - path: jnt_root/jnt_R_hip
+        weight: 1
+      - path: jnt_root/jnt_R_hip/jnt_R_Foot
+        weight: 1
+      - path: jnt_root/jt_spine
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_L_Shoulder
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_L_Shoulder/jnt_L_Shoulder2
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_L_Shoulder/jnt_L_Shoulder2/jnt_L_Elbow
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_L_Shoulder/jnt_L_Shoulder2/jnt_L_Elbow/jnt_L_Hand
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_R_Shoulder
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_R_Shoulder/jnt_R_Shoulder2
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_R_Shoulder/jnt_R_Shoulder2/jnt_R_elbow
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_R_Shoulder/jnt_R_Shoulder2/jnt_R_elbow/jnt_R_Hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 25
+      lastFrame: 47
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BodyMesh
+        weight: 1
+      - path: BodyMesh/FaceMesh
+        weight: 1
+      - path: jnt_root
+        weight: 1
+      - path: jnt_root/jnt_L_Hip
+        weight: 1
+      - path: jnt_root/jnt_L_Hip/jnt_L_Foot
+        weight: 1
+      - path: jnt_root/jnt_R_hip
+        weight: 1
+      - path: jnt_root/jnt_R_hip/jnt_R_Foot
+        weight: 1
+      - path: jnt_root/jt_spine
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_L_Shoulder
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_L_Shoulder/jnt_L_Shoulder2
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_L_Shoulder/jnt_L_Shoulder2/jnt_L_Elbow
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_L_Shoulder/jnt_L_Shoulder2/jnt_L_Elbow/jnt_L_Hand
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_R_Shoulder
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_R_Shoulder/jnt_R_Shoulder2
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_R_Shoulder/jnt_R_Shoulder2/jnt_R_elbow
+        weight: 1
+      - path: jnt_root/jt_spine/jnt_R_Shoulder/jnt_R_Shoulder2/jnt_R_elbow/jnt_R_Hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
