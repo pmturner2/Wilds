@@ -96,73 +96,9 @@ public class GameManager : MonoBehaviour {
                     data.requester.QueueMessage(message);
                 }
                 break;
-            case eMessageType.INPUT: 
+            case eMessageType.INPUT:
 
-                // Game Manager parses the clicks.
-                InputData input = (InputData)message.data;
-
-                // This is used for game camera clicks.
-                Collider clickCollider = null;
-
-                // This is the stored click object from a previous click. (Cleared on release)
-                Clickable currentClick = ui.currentClick;
-                
-                RaycastHit hit;
-                
-                bool shouldProcessWorldClick = false;
-
-                switch (input.leftClick)
-                {
-                    case eButtonState.DOWN:
-                        shouldProcessWorldClick = !ui.CheckClick(input.screenSpaceClick, true, false);
-                        // TODO: Process DOWN event. This system needs updating / separation of behavior. 
-                        // Imagine for gamepad / touch and separate accordingly.
-                        break;
-                    case eButtonState.HOLD:
-                        shouldProcessWorldClick = !ui.CheckClick(input.screenSpaceClick, false, false);
-                        break;
-                    case eButtonState.UP:
-                        shouldProcessWorldClick = true;
-                        // If we have clicked a UI Element earlier
-                        if (currentClick != null)
-                        {
-                            // If we have a matching UI that we are releasing on, then do it. Otherwise, do world.
-                            if (ui.CheckClick(input.screenSpaceClick, true, true))
-                            {
-                                shouldProcessWorldClick = false;
-                                // if UI, process it
-                                currentClick.OnClick();
-                            }
-                            else
-                            {
-                                // If not UI, do World Stuff.
-                                // Or do nothing, since it's up. Change this
-                            }
-                        }
-                        
-                        // Clear UI State
-                        ui.currentClick = null;
-
-                        ui.HideDestinationMarker();
-                        break;
-                    case eButtonState.INACTIVE:
-                        shouldProcessWorldClick = false;
-                        break;
-                }
-
-
-                // If not UI, do World Stuff.
-                if (shouldProcessWorldClick)
-                {
-                    clickCollider = GetColliderFromCameraRaycast(gameCamera, input.screenSpaceClick, out hit);
-                    if (clickCollider && clickCollider.CompareTag("Terrain"))
-                    {
-                        input.worldDestination = hit.point;
-                        ui.MarkPlayerDestination(hit.point);
-                        message.data = input;
-                        player.QueueMessage(message);
-                    }
-                }
+                //player.QueueMessage(message);
                 
                 return;
             default:
@@ -181,7 +117,7 @@ public class GameManager : MonoBehaviour {
 
     // -----------------------------------------------------------------------
 
-    private Collider GetColliderFromCameraRaycast(Camera fromCamera, Vector3 toPoint, out RaycastHit hit)
+    public Collider GetColliderFromCameraRaycast(Camera fromCamera, Vector3 toPoint, out RaycastHit hit)
     {
         const float raycastDistance = 1000f;
 

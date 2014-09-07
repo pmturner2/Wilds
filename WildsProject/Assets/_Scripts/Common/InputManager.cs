@@ -23,8 +23,12 @@ public class InputManager : Entity {
 
 	// Update is called once per frame
 	void Update () {
-        Message msg = new Message();
-        msg.mType = eMessageType.INPUT;
+       // Read Input
+
+       // Instead of sending an input message to game manager, process input and game state here and send appropriate messages.
+       // Message msg = new Message();
+       
+        //msg.mType = eMessageType.INPUT;
 
         InputData input = new InputData();
 
@@ -58,13 +62,83 @@ public class InputManager : Entity {
                 //m_nextClickTime = 0; // Disabling timer for now. 
             }
         }
-        
+
         // --- Check For Keys (PC Mode)
 
         input.shiftClick = Input.GetKey(KeyCode.LeftShift);
-       
-        msg.data = input;
-        game.DispatchMessage(msg);
+
+        ProcessInput(ref input);
+    }
+
+    void ProcessInput(ref InputData input) {
+        // This is used for game camera clicks.
+        Collider clickCollider = null;
+
+        // This is the stored click object from a previous click. (Cleared on release)
+        Clickable currentClick = game.ui.currentClick;
+
+        RaycastHit hit;
+
+        bool shouldProcessWorldClick = false;
+
+        switch (input.leftClick)
+        {
+            case eButtonState.DOWN:
+                shouldProcessWorldClick = !game.ui.CheckClick(input.screenSpaceClick, true, false);
+                // TODO: Process DOWN event. This system needs updating / separation of behavior. 
+                // Imagine for gamepad / touch and separate accordingly.
+                break;
+            case eButtonState.HOLD:
+                shouldProcessWorldClick = !game.ui.CheckClick(input.screenSpaceClick, false, false);
+                break;
+            case eButtonState.UP:
+                shouldProcessWorldClick = true;
+                // If we have clicked a UI Element earlier
+                if (currentClick != null)
+                {
+                    // If we have a matching UI that we are releasing on, then do it. Otherwise, do world.
+                    if (game.ui.CheckClick(input.screenSpaceClick, true, true))
+                    {
+                        shouldProcessWorldClick = false;
+                        // if UI, process it
+                        currentClick.OnClick();
+                    }
+                    else
+                    {
+                        // If not UI, do World Stuff.
+                        // Or do nothing, since it's up. Change this
+                    }
+                }
+
+                // Clear UI State
+                game.ui.currentClick = null;
+
+                game.ui.HideDestinationMarker();
+                break;
+            case eButtonState.INACTIVE:
+                shouldProcessWorldClick = false;
+                break;
+        }
+
+
+        // If not UI, do World Stuff.
+        if (shouldProcessWorldClick)
+        {
+            clickCollider = game.GetColliderFromCameraRaycast(game.gameCamera, input.screenSpaceClick, out hit);
+            if (clickCollider && clickCollider.CompareTag("Terrain"))
+            {
+                input.worldDestination = hit.point;
+                game.ui.MarkPlayerDestination(hit.point);
+                Message message = new Message();
+                message.mType = eMessageType.INPUT;
+                message.data = input;
+                game.player.QueueMessage(message);
+            }
+        }
+
+
+        //msg.data = input;
+        //game.DispatchMessage(msg);
 	}
 }
 
